@@ -26,19 +26,18 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|-------|
+|name|string|-------|
 
   Association
   - has_many :users, through: :group_users
   - has_many :group_users
-  - accepts_nested_attributes_for :group_users
   - has_many :messages
 
 
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|username|string|-------|
+|name|string|-------|
 |password |string|-------|
 |email|integer|unique: true|
 
@@ -59,7 +58,7 @@ Things you may want to cover:
 
   Association
   - message.rb
-  - belongs_to :users
+  - belongs_to :user
   - belongs_to :group
 
 ## group_usersテーブル(中間テーブル)
