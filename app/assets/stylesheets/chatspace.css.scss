@@ -1,5 +1,10 @@
+$backcolorblue:#38AEF0;
+$fontwhite:#FFFFFF;
+$messagecolor:#434A54;
+$infocolor:#999999;
+
 .notice {
-  background-color: #38AEF0;
+  background-color: $backcolorblue;
   height: 30px;
   width: 100vw;
   // display: none;
@@ -18,7 +23,7 @@
       &_username{
         font-size: 16px;
         font-weight: bold;
-        color: #FFFFFF;
+        color: $fontwhite;
         float: left;
       }
       &_newgroup{
@@ -26,12 +31,12 @@
         padding-right: 10px;
         float: left;
         i{
-          color:white;
+          color:$fontwhite;
         }
       }
       &_settings{
         i{
-          color: white;
+          color:$fontwhite;
         }
       }
     }
@@ -43,13 +48,13 @@
       &__group{
         &-name{
           font-size: 15px;
-          color: #FFFFFF;
+          color:$fontwhite;
           margin-top:20px;
           margin-bottom: 5px;
         }
         &-message{
           font-size: 11px;
-          color: #FFFFFF;
+          color:$fontwhite;
           margin-bottom: 40px;
         }
       }
@@ -60,7 +65,7 @@
 .chatwindow{
   float: right;
   position: relative;
-  width: calc(100vw - 300px);
+  width: calc(100vw - 315px);
   &__head{
     border-bottom: 1px solid #eeeeee;
     padding-right: 40px;
@@ -68,7 +73,7 @@
       float: right;
       margin-top: 28px;
       padding: 12px 20px 12px 20px;
-      color: #38AEF0;
+      color: $backcolorblue;
       border-style: solid;
     }
     &__group{
@@ -81,8 +86,7 @@
       }
       &-members{
         font-size: 12px;
-        color: #999999;
-
+        color: $infocolor;
       }
     }
   }
@@ -97,12 +101,12 @@
           float: left;
           font-size: 16px;
           font-weight: bold;
-          color: #434A54;
+          color:$messagecolor;
           padding-right: 10px;
         }
         &-time{
           font-size: 12px;
-          color: #999999;
+          color:$infocolor;
           margin-top: 3px;
         }
         &-content{
@@ -110,7 +114,7 @@
           padding-bottom: 40px;
           &__text{
             font-size: 14px;
-            color: #434A54;
+            color:$messagecolor;
           }
         }
       }
@@ -149,15 +153,12 @@
       &__sent{
         float: left;
         border: 1px solid;
-        background-color: #38AEF0;
+        background-color: $backcolorblue;
         color: white;
-        padding-top: 18px;
-        padding-bottom: 17px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 18px 20px 17px 20px;
         text-decoration: none;
         border:  1px solid;
-        border-color: #38AEF0;
+        border-color: $backcolorblue;
       }
     }
   }
