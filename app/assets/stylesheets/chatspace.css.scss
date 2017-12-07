@@ -7,7 +7,7 @@ $infocolor:#999999;
   background-color: $backcolorblue;
   height: 30px;
   width: 100vw;
-  // display: none;
+  display: none;
 }
 
 .sidebar {
@@ -65,7 +65,7 @@ $infocolor:#999999;
 .chatwindow{
   float: right;
   position: relative;
-  width: calc(100vw - 315px);
+  width: calc(100vw - 300px);
   &__head{
     border-bottom: 1px solid #eeeeee;
     padding-right: 40px;

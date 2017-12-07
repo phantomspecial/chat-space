@@ -40,6 +40,7 @@ Things you may want to cover:
 |name|string|-------|
 |password |string|-------|
 |email|integer|unique: true|
+|name|string|null: false|
 
   Association
   - user.rb
