@@ -1,0 +1,70 @@
+%body
+  %header.header
+  .notice
+  .sidebar
+    .sidebar__user
+      .sidebar__user__userfield
+        .sidebar__user__userfield_username TESTTEST
+        .sidebar__user__userfield_newgroup
+          = link_to "/" do
+            %i.fa.fa-pencil-square-o
+        .sidebar__user__userfield_settings
+          = link_to "/" do
+            %i.fa.fa-cog
+    .sidebar__groups
+      .sidebar__groups-list
+        .sidebar__groups-list__group
+          .sidebar__groups-list__group-name GROUP1
+          .sidebar__groups-list__group-message TEST1
+        .sidebar__groups-list__group
+          .sidebar__groups-list__group-name GROUP2
+          .sidebar__groups-list__group-message TEST2
+        .sidebar__groups-list__group
+          .sidebar__groups-list__group-name GROUP3
+          .sidebar__groups-list__group-message TEST3
+        .sidebar__groups-list__group
+          .sidebar__groups-list__group-name GROUP4
+          .sidebar__groups-list__group-message TEST4
+  .chatwindow
+    .chatwindow__head
+      .chatwindow__head__edit
+        = link_to "/" do
+          Edit
+      .chatwindow__head__group
+        .chatwindow__head__group-name GROUP1
+        .chatwindow__head__group-members Member: member1 member2
+    .chatwindow__body
+      .chatwindow__body__fields
+        .chatwindow__body__fields__message
+          .chatwindow__body__fields__message-name tester
+          .chatwindow__body__fields__message-time 2017/12/05 00:00:00
+          .chatwindow__body__fields__message-content
+            .chatwindow__body__fields__message_content__text test1
+            .chatwindow__body__fields__message_content__image
+        .chatwindow__body__fields__message
+          .chatwindow__body__fields__message-name tester2
+          .chatwindow__body__fields__message-time 2017/12/05 00:02:00
+          .chatwindow__body__fields__message-content
+            .chatwindow__body__fields__message_content__text test2
+            .chatwindow__body__fields__message_content__image
+        .chatwindow__body__fields__message
+          .chatwindow__body__fields__message-name tester3
+          .chatwindow__body__fields__message-time 2017/12/05 00:03:00
+          .chatwindow__body__fields__message-content
+            .chatwindow__body__fields__message_content__text test3
+            .chatwindow__body__fields__message_content__image
+        .chatwindow__body__fields__message
+          .chatwindow__body__fields__message-name tester4
+          .chatwindow__body__fields__message-time 2017/12/05 00:05:00
+          .chatwindow__body__fields__message-content
+            .chatwindow__body__fields__message_content__text test4
+            .chatwindow__body__fields__message_content__image
+    .chatwindow__messenger
+      .chatwindow__messenger__form
+      = form_for "" do |f|
+        = f.text_field "", class: "chatwindow__messenger__form__textbox", placeholder: "Type a text"
+        %label.chatwindow__messenger__form__imagebox
+          = f.file_field "", class: "chatwindow__messenger__form__imagebox-label"
+          %i.fa.fa-file-picture-o
+        = f.submit value: "Send", class: "chatwindow__messenger__form__sent"
+
