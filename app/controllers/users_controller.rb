@@ -6,9 +6,10 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if user.update(user_params)
-      redirect_to :root
+      redirect_to :root , notice: "ユーザ情報の更新に成功しました。"
     else
-      render :edit
+      render :edit , alert: "ユーザ情報の更新に失敗しました。"
+    end
   end
 
   private
