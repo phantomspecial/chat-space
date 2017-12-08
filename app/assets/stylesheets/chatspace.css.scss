@@ -5,9 +5,14 @@ $infocolor:#999999;
 
 .notice {
   background-color: $backcolorblue;
-  height: 30px;
   width: 100vw;
-  display: none;
+  text-align: center;
+}
+
+.alert {
+  background-color: #e45f29;
+  width: 100vw;
+  text-align: center;
 }
 
 .sidebar {
