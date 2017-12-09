@@ -4,27 +4,17 @@
   .sidebar
     .sidebar__user
       .sidebar__user__userfield
-        .sidebar__user__userfield_username TESTTEST
+        .sidebar__user__userfield_username
+          = current_user.name
         .sidebar__user__userfield_newgroup
-          = link_to "/" do
+          = link_to new_group_path do
             %i.fa.fa-pencil-square-o
         .sidebar__user__userfield_settings
           = link_to edit_user_registration_path do
             %i.fa.fa-cog
     .sidebar__groups
       .sidebar__groups-list
-        .sidebar__groups-list__group
-          .sidebar__groups-list__group-name GROUP1
-          .sidebar__groups-list__group-message TEST1
-        .sidebar__groups-list__group
-          .sidebar__groups-list__group-name GROUP2
-          .sidebar__groups-list__group-message TEST2
-        .sidebar__groups-list__group
-          .sidebar__groups-list__group-name GROUP3
-          .sidebar__groups-list__group-message TEST3
-        .sidebar__groups-list__group
-          .sidebar__groups-list__group-name GROUP4
-          .sidebar__groups-list__group-message TEST4
+        = render partial: "shared/grouplist" , collection: @groups, as: :group
   .chatwindow
     .chatwindow__head
       .chatwindow__head__edit
