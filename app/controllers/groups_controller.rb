@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to :root, notice:"グループ作成完了"
     else
-      render :new
+      render :new, alert: "グループ作成失敗"
     end
   end
 
@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice:"グループ編集完了"
     else
-      render :edit
+      render :edit, alert:"グループ編集失敗"
     end
   end
 
