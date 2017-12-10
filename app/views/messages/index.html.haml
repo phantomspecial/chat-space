@@ -28,36 +28,12 @@
             = usr.name
     .chatwindow__body
       .chatwindow__body__fields
-        .chatwindow__body__fields__message
-          .chatwindow__body__fields__message-name tester
-          .chatwindow__body__fields__message-time 2017/12/05 00:00:00
-          .chatwindow__body__fields__message-content
-            .chatwindow__body__fields__message_content__text test1
-            .chatwindow__body__fields__message_content__image
-        .chatwindow__body__fields__message
-          .chatwindow__body__fields__message-name tester2
-          .chatwindow__body__fields__message-time 2017/12/05 00:02:00
-          .chatwindow__body__fields__message-content
-            .chatwindow__body__fields__message_content__text test2
-            .chatwindow__body__fields__message_content__image
-        .chatwindow__body__fields__message
-          .chatwindow__body__fields__message-name tester3
-          .chatwindow__body__fields__message-time 2017/12/05 00:03:00
-          .chatwindow__body__fields__message-content
-            .chatwindow__body__fields__message_content__text test3
-            .chatwindow__body__fields__message_content__image
-        .chatwindow__body__fields__message
-          .chatwindow__body__fields__message-name tester4
-          .chatwindow__body__fields__message-time 2017/12/05 00:05:00
-          .chatwindow__body__fields__message-content
-            .chatwindow__body__fields__message_content__text test4
-            .chatwindow__body__fields__message_content__image
+        = render partial: "shared/messagelist", collection: @messages, as: :message
     .chatwindow__messenger
       .chatwindow__messenger__form
-      = form_for "" do |f|
-        = f.text_field "", class: "chatwindow__messenger__form__textbox", placeholder: "Type a text"
+      = form_for [@currentgroup ,@message] do |f|
+        = f.text_field :content, class: "chatwindow__messenger__form__textbox", placeholder: "Type a text"
         %label.chatwindow__messenger__form__imagebox
-          = f.file_field "", class: "chatwindow__messenger__form__imagebox-label"
+          = f.file_field :image, class: "chatwindow__messenger__form__imagebox-label"
           %i.fa.fa-file-picture-o
         = f.submit value: "Send", class: "chatwindow__messenger__form__sent"
-
