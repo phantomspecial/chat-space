@@ -18,7 +18,7 @@
   .chatwindow
     .chatwindow__head
       .chatwindow__head__edit
-        = link_to "/" do
+        = link_to edit_group_path(@currentgroup) do
           Edit
       .chatwindow__head__group
         .chatwindow__head__group-name
@@ -31,9 +31,9 @@
         = render partial: "shared/messagelist", collection: @messages, as: :message
     .chatwindow__messenger
       .chatwindow__messenger__form
-      = form_for [@currentgroup ,@message] do |f|
+      = form_for [@currentgroup ,@message] , id: "ajax_messageform" do |f|
         = f.text_field :content, class: "chatwindow__messenger__form__textbox", placeholder: "Type a text"
         %label.chatwindow__messenger__form__imagebox
           = f.file_field :image, class: "chatwindow__messenger__form__imagebox-label"
           %i.fa.fa-file-picture-o
-        = f.submit value: "Send", class: "chatwindow__messenger__form__sent"
+        = f.submit data: {disable_with: "Sending..."},value: "Send", class: "chatwindow__messenger__form__sent"
