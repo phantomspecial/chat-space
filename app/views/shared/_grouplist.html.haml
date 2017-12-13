@@ -3,9 +3,4 @@
     .sidebar__groups-list__group-name
       = group.name
     .sidebar__groups-list__group-message
-      - if group.messages.last.content.present?
-        = group.messages.last.content
-      - elsif group.messages.last.image.present?
-        画像が投稿されています
-      - else
-        まだメッセージはありません
+      = Group.last_message_show(group)
