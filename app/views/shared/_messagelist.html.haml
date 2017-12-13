@@ -1,13 +1,14 @@
-.chatwindow__body__fields__message
-  .chatwindow__body__fields__message-name
-    = message.user.name
-  .chatwindow__body__fields__message-time
-    = message.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M:%S")
-  .chatwindow__body__fields__message-content
-    .chatwindow__body__fields__message_content__text
-      - if message.content.present?
-        = message.content
-    .chatwindow__body__fields__message_content__image
-      - if message.image.present?
-        = image_tag message.image
+- @currentgroup.messages.each do |message|
+  .chatwindow__body__fields__message
+    .chatwindow__body__fields__message-name
+      = message.user.name
+    .chatwindow__body__fields__message-time
+      = message.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M:%S")
+    .chatwindow__body__fields__message-content
+      .chatwindow__body__fields__message_content__text
+        - if message.content.present?
+          = message.content
+      .chatwindow__body__fields__message_content__image
+        - if message.image.present?
+          = image_tag message.image
 
