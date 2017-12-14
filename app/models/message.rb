@@ -8,7 +8,7 @@ class Message < ApplicationRecord
   validates :messagechecker, presence: true
 
   def messagechecker
-    content.presence or image.presence
+    content.present? || image.present?
   end
 
 end
