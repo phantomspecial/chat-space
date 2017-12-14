@@ -79,7 +79,7 @@ $(function() {
         json.messages.forEach(function(message) {
           insertHTML += windowupd(message);
         });
-        $chatspace.html(message);
+        $chatspace.html(insertHTML);
         $chatspace.animate({scrollTop: $chatspace[0].scrollHeight}, 'fast');
       })
 
