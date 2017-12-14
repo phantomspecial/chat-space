@@ -1,7 +1,5 @@
 class MessagesController < ApplicationController
 
-  before_action :index
-
   def index
     @groups = current_user.groups
     @currentgroup = Group.find(params[:group_id])
@@ -20,12 +18,10 @@ class MessagesController < ApplicationController
     @message = current_user.messages.new(message_params)
     if @message.save
       respond_to do |format|
-       # format.html { redirect_to group_messages_path(@message.group_id) ,notice:"メッセージ送信成功"}
-       format.json {}
+        format.json
       end
     else
-      flash.now[:alert] = "メッセージを入力もしくは写真を選択してください"
-      render :index
+      redirect_to group_messages_path(params[:group_id])
     end
   end
 

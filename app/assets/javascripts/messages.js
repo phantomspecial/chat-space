@@ -16,10 +16,13 @@ $(function() {
   }
 
 
-  $('.js-form').on('submit', function(e) {
+  $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData($(this).get(0));
     var chat_url = $(this).attr("action");
+    $('.ajax_messageform__content').val('');
+    $('.ajax_messageform__image').val('');
+    // $('.chatwindow__messenger__form__sent').prop('disabled', false);
     $.ajax({
       type: 'POST',
       url: chat_url,
@@ -31,14 +34,12 @@ $(function() {
     .done(function(data) {
       var html = new_message(data);
       $('.chatwindow__body__fields').append(html);
-      $('.ajax_messageform__content').val('');
-      $('.ajax_messageform__image').val('');
-      $('.chatwindow__messenger__form__sent').prop('disabled', false);
       $('.chatwindow__body').animate({scrollTop: $('.chatwindow__body')[0].scrollHeight}, 'fast');
     })
     .fail(function(data) {
       alert('メッセージを入力してください');
     });
+    return false;
   });
 
 
