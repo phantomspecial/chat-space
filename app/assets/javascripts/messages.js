@@ -43,5 +43,53 @@ $(function() {
   });
 
 
+ // ⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆投稿の非同期通信機能⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+
+ // ⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇自動更新機能⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇︎
+  function windowupd(message) {
+    var insertImage = '';
+    if (message.image.url) {
+      insertImage = `<img src="${message.image.url}">`;
+    };
+    var html = `
+      <div class="chatwindow__body__fields__message">
+        <div class="chatwindow__body__fields__message-name"><p>${message.name}</p></div>
+        <div class="chatwindow__body__fields__message-time"><p>${message.time}</p></div>
+        <div class="chatwindow__body__fields__message-content">
+          <div class="chatwindow__body__fields__message-content__text"><p>${message.content}</p></div>
+          <div class="chatwindow__body__fields__message-content__image">${insertImage}</div>
+        </div>
+      </div>`;
+    return html
+  };
+
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        type: 'GET',
+        url: location.href,
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+      })
+
+      .done(function(json) {
+        var insertHTML = '';
+        var $chatspace = $('.chatwindow__body')
+        json.messages.forEach(function(message) {
+          insertHTML += windowupd(message);
+        });
+        $chatspace.html(message);
+        $chatspace.animate({scrollTop: $chatspace[0].scrollHeight}, 'fast');
+      })
+
+      .fail(function(data) {
+        alert('自動更新に失敗しました');
+      });
+    } else {
+      clearInterval(interval);
+    }
+  }, 5000 );
+
 
 });
