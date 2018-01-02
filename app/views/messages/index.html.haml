@@ -26,9 +26,9 @@
         .chatwindow__head__group-members
           - @currentgroup.users.each do |usr|
             = usr.name
-    .chatwindow__body
+    .chatwindow__body.scroll
       .chatwindow__body__fields
-        = render partial: "shared/messagelist"
+        = render partial: "shared/messagelist" ,collection: @messages, as: :message
     .chatwindow__messenger
       .chatwindow__messenger__form
       = form_for [@currentgroup ,@message] , html: { class: 'js-form' } ,remote: true do |f|

@@ -4,13 +4,14 @@ class MessagesController < ApplicationController
     @groups = current_user.groups
     @currentgroup = Group.find(params[:group_id])
 
-    @messages = @currentgroup.messages
+    @messages = @currentgroup.messages.order("created_at ASC")
 
     @message = current_user.messages.new
-
+    @new_messages = @currentgroup.messages.where("id > ?", params[:last_id])
+    # binding.pry
     respond_to do |format|
       format.html
-      format.json
+      format.json { render 'update', handlers: 'jbuilder' }
     end
   end
 

@@ -15,6 +15,10 @@ $infocolor:#999999;
   text-align: center;
 }
 
+.scroll{
+  overflow-y: scroll;
+}
+
 .sidebar {
   float: left;
   position: absolute;
@@ -96,7 +100,8 @@ $infocolor:#999999;
     }
   }
   &__body{
-    height: calc( 100vh - 99px);
+    .scroll{overflow-x:scroll};
+    height: calc( 100vh - 200px);
     background-color: #AAAAAA;
     padding-left: 40px;
     &__fields{
