@@ -8,7 +8,6 @@ class MessagesController < ApplicationController
 
     @message = current_user.messages.new
     @new_messages = @currentgroup.messages.where("id > ?", params[:last_id])
-    # binding.pry
     respond_to do |format|
       format.html
       format.json { render 'update', handlers: 'jbuilder' }
